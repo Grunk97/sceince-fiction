@@ -1,0 +1,116 @@
+$my-color: cornflowerblue;
+$my-2color: whitesmoke;
+$my-center: center;
+$my-none: none;
+$my-padding: 10px 10px;
+$my-fontsize: 2em;
+$my-font: helvetica, arial, sans-serif;
+$my-lineheight: 1.5;
+$my-width: 300px;
+$my-flex: flex;
+$my-space: space-around;
+$my-display: inline;
+$my-weight: 200;
+$my-precentage: 10%;
+
+@mixin my-font {
+    font-family: $my-font;
+    font-weight: $my-weight;
+}
+
+@mixin rounded-corners ($radius: 5px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+.overskrift {
+    @include my-font;
+    font-size: $my-fontsize;
+    text-align: $my-center;
+}
+
+.container {
+    text-align: $my-center;
+    padding: $my-padding;
+    background: $my-color;
+        .menu {
+                list-style: $my-none;
+                li {
+                    display: $my-display;
+                    a {
+                        color: $my-2color;
+                        text-decoration: $my-none;  
+                        padding: $my-padding;
+                        @include my-font;
+                        @include rounded-corners;
+                        &:hover {
+                                    background: darken($my-color, $my-precentage);
+                                }
+                        }
+                    }
+                }
+            }
+
+h2 {
+    font-family: $my-font;
+}
+
+.container1 {
+    display: $my-flex;
+    line-height: $my-lineheight;
+    p {
+        font-family: $my-font;
+        padding: $my-padding;
+    }
+}
+
+h3 {
+    @extend h2;
+}
+
+.container2 {
+    display: $my-flex;
+    justify-content: $my-space;
+}
+
+.flex3 {
+    width: $my-width;
+        h4 {
+            @extend h3;
+        }
+        img {
+            width: $my-width;
+            transition: transform .2s;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        figcaption {
+            font-family: $my-font;
+            line-height: $my-lineheight;
+            width: $my-width;
+        }
+
+}
+
+.container3 {
+    display: $my-flex;
+    justify-content: $my-space;
+    background: $my-color;
+    font-family: $my-font;
+    color: $my-2color;
+    .menu1 {
+        list-style: $my-none;
+        li {
+            display: $my-display;
+            a {
+                color: $my-2color;
+                &:hover {
+                    color: darken($my-2color, $my-precentage);
+                }
+            }
+        }
+    }
+
+}
